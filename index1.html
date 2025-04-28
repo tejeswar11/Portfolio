@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Welcome to My WebPage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #34495E;
+            color: white;
+            scroll-behavior: smooth;
+            padding-bottom: 60px;
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #f7fdfd;
+            text-decoration: underline;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px;
+            background-color: #34495E;
+            border-bottom: 2px solid #00ffff;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #070b0b;
+            margin-right: 20px; /* Adds space between the photo and text */
+        }
+
+        .header-text {
+            color: #FFFFF0;
+        }
+
+        .header-text h1 {
+            margin: 0;
+        }
+
+        .typing-effect {
+            display: inline-block;
+            font-size: 1.5em;
+            font-style: italic;
+            color: #FFFFF0;
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        nav {
+            background: #34495E;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #FFFFF0;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #00ffff;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Box style for every section without borders around box */
+        .section {
+            width: 80%; 
+            max-width: 1000px; 
+            margin: 60px auto;
+            background-color: rgba(52, 152, 185, 0.05); 
+            padding: 40px 30px; 
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            border-bottom: 2px solid #FFFFF0; /* Adds a line at the bottom of each section */
+        }
+
+        .section h2 {
+            color: #FFFFF0;
+        }
+
+        .section p {
+            line-height: 1.6;
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        .skills, .projects {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 20px;
+        }
+
+        .skills div, .projects div {
+            min-width: 300px;
+            flex: 0 0 auto;
+            background-color: #34495E;
+            color: #FFFFF0;
+            padding: 20px;
+            border: 2px solid #ffffff33; /* semi-transparent white border */
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(75, 0, 130, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skills div:hover, .projects div:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 20px;
+        }
+
+        .tab-button {
+            padding: 10px 20px;
+            background-color: #34495E;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .tab-button:hover {
+            background-color: #2980b9;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .tab-button.active {
+            background-color: #2980b9;
+        }
+
+        .about {
+            width: 80%; 
+            max-width: 1000px; 
+            margin: 60px auto;
+            background-color: rgba(52, 152, 185, 0.05); 
+            padding: 40px 30px; 
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .about p {
+            margin: 20px auto;
+            line-height: 1.6;
+            width: 90%;
+        }
+
+        .about h2 {
+            color: #FFFFF0;
+        }
+
+        .resume-link {
+            margin-top: 20px;
+            display: inline-block;
+            background-color: #34495E;
+            color: #080808;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .socials {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .socials a {
+            color: #FFFFF0;
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .socials a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            height: 60px;
+            width: 100%;
+            background-color: #34495E;
+            color: #fff;
+            text-align: center;
+            line-height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <img src="tej.jpg" alt="Profile Photo" class="profile-pic" />
+        <div class="header-text">
+            <h1>Patipathi Tejeswar Kumar</h1>
+            <p>Frontend Enthusiast | Problem Solver | Code Tester</p>
+        </div>
+    </header>
+
+    <!-- Typing Effect Section -->
+    <section id="typing-effect" style="text-align:center; margin-top: 20px;">
+        <div class="typing-effect" id="typed-text"></div>
+    </section>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <!-- About Section -->
+        <section class="section" id="about">
+            <h2>About Me</h2>
+            <p>Hello, I’m Tejeswar Kumar, a final-year B.Tech student with a strong passion for frontend web development. I specialize in building clean, responsive websites that prioritize both aesthetics and usability. With a solid foundation in HTML, CSS, and JavaScript, I enjoy developing intuitive and interactive web experiences that are user-friendly and visually appealing.
+
+                I am continually striving to expand my skill set and take on new challenges through both personal and collaborative projects. I believe in the importance of blending great design with seamless functionality and always aim to incorporate this philosophy into my work.
+                
+                Outside of development, I enjoy exploring the latest trends in UI design, solving complex logic problems, and enhancing my creative problem-solving skills.</p>
+            <button onclick="openResumeModal()" style="
+                background-color: #00ffff;
+                color: #080808;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 5px;
+                font-weight: bold;
+                cursor: pointer;">
+                View Resume
+            </button>
+
+            <div id="resumeModal" style="
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0,0,0,0.8);
+                backdrop-filter: blur(4px);
+            ">
+                <div style="
+                    background-color: #1a1a1a;
+                    margin: 10% auto;
+                    padding: 20px;
+                    border-radius: 10px;
+                    width: 90%;
+                    max-width: 800px;
+                    position: relative;
+                    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+                    text-align: center;
+                ">
+                    <span onclick="closeResumeModal()" style="
+                        color: #00ffff;
+                        position: absolute;
+                        top: 10px;
+                        right: 20px;
+                        font-size: 24px;
+                        cursor: pointer;
+                    ">&times;</span>
+                    <h3 style="color: #00ffff;">My Resume</h3>
+                    <img src="resume.jpg" alt="Resume Image" style="
+                        width: 100%;
+                        border-radius: 8px;
+                        margin-top: 15px;
+                    ">
+                </div>
+            </div>
+            
+            <script>
+                function openResumeModal() {
+                    document.getElementById('resumeModal').style.display = 'block';
+                }
+
+                function closeResumeModal() {
+                    document.getElementById('resumeModal').style.display = 'none';
+                }
+
+                window.onclick = function(event) {
+                    const modal = document.getElementById('resumeModal');
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section" id="skills">
+            <h2>Skills</h2>
+            <div class="tabs">
+                <button class="tab-button" onclick="openTab(event, 'web-dev')">Web Development</button>
+                <button class="tab-button" onclick="openTab(event, 'programming')">Programming</button>
+                <button class="tab-button" onclick="openTab(event, 'tools')">Tools & Tech Stack</button>
+            </div>
+
+            <div id="web-dev" class="tab-content">
+                <p><strong>HTML:</strong> Structuring content with semantic tags.</p>
+                <p><strong>CSS:</strong> Styling with modern responsive layouts.</p>
+                <p><strong>JavaScript:</strong> Adding dynamic behavior to web pages.</p>
+            </div>
+
+            <div id="programming" class="tab-content" style="display:none;">
+                <p><strong>Python:</strong> Scripting and problem-solving.</p>
+                <p><strong>C/C++:</strong> Foundational programming logic.</p>
+                <p><strong>Java:</strong> OOP concepts and application development.</p>
+            </div>
+
+            <div id="tools" class="tab-content" style="display:none;">
+                <p><strong>Git & GitHub:</strong> Version control and collaboration.</p>
+                <p><strong>VS Code:</strong> Code editor with extensions.</p>
+                <p><strong>Chrome DevTools:</strong> Debugging and testing.</p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section" id="projects">
+            <h2>Projects</h2>
+            <div class="tabs">
+                <button class="tab-button" onclick="openTab(event, 'personal-projects')">Personal Projects</button>
+                <button class="tab-button" onclick="openTab(event, 'collaborative-projects')">Collaborative Projects</button>
+            </div>
+
+            <div id="personal-projects" class="tab-content">
+                <p><strong>Portfolio Website:</strong> A personal website to showcase my skills and work.</p>
+                <p><strong>Productivity Tracker:</strong> A simple task and goal management tool.</p>
+            </div>
+
+            <div id="collaborative-projects" class="tab-content" style="display:none;">
+                <p><strong>Weather Dashboard:</strong> Displays real-time weather data using APIs.</p>
+                <p><strong>Team Task Manager:</strong> A shared platform for managing team tasks.</p>
+                <p><strong>CodeShare Hub:</strong> A collaborative code sharing mini platform.</p>
+            </div>
+        </section>
+
+        <script>
+            function openTab(evt, tabName) {
+                const tabContents = document.querySelectorAll('.tab-content');
+                const tabButtons = document.querySelectorAll('.tab-button');
+                tabContents.forEach(content => content.style.display = 'none');
+                tabButtons.forEach(button => button.classList.remove('active'));
+                
+                document.getElementById(tabName).style.display = 'block';
+                evt.currentTarget.classList.add('active');
+            }
+
+            // Set default active tab
+            document.querySelector('.tab-button').click();
+        </script>
+
+        <!-- Contact Section -->
+        <section class="section" id="contact">
+            <h2>Contact</h2>
+            <p>If you'd like to collaborate or have any questions, feel free to reach out to me:</p>
+            <p>Email: tejeswarkumar@gmail.com</p>
+            <p>Phone: 6301034381</p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/devi-priya-kakarla-154b74257" target="_blank">www.linkedin.com/in/devi-priya-kakarla-154b74257</a></p>
+            <p>GitHub: <a href="https://github.com/DeviPriya757" target="_blank">github.com/DeviPriya757</a></p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Patipathi Tejeswar Kumar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const typedTextElement = document.getElementById('typed-text');
+        const text = "Welcome to my digital space, Where you can explore my work and experience";
+        let index = 0;
+
+        function type() {
+            if (index < text.length) {
+                typedTextElement.textContent += text.charAt(index);
+                index++;
+                setTimeout(type, 100);
+            }
+        }
+
+        function startTypingEffect() {
+            typedTextElement.textContent = '';
+            index = 0;
+            type();
+        }
+
+        startTypingEffect();
+
+        setInterval(startTypingEffect, 15000);
+    </script>
+</body>
+</html>
